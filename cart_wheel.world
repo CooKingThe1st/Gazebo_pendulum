@@ -1,0 +1,238 @@
+<!--ros@ros-Aspire-E5-574G:~/ros_inverse_pendulum/src/pendulum_plugin_world$ gzserver base_2.world --verbose
+^Cros@ros-Aspire-E5-574G:~/ros_inverse_pendulum/src/pendulum_plugin_world$ gzclient 
+$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$PWD/build
+make
+-->
+
+ <sdf version='1.6'>
+  <world name='default'>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <model name='pendulum_cart'>
+    	<static>false</static>
+      <link name='cart_body'>
+        <pose frame=''>0 0 0.9 0 -0 0</pose>
+    	<inertial>
+      	  <mass>10.0</mass>
+          <inertia> <ixx>0.0416666666</ixx> 
+	   	   <ixy>0.0</ixy> 
+		   <ixz>0.0</ixz> 
+		   <iyy>0.1416666666</iyy> 
+		   <iyz>0.0</iyz>
+		   <izz>0.1666666666</izz>
+           </inertia>
+        </inertial>
+        <visual name='visual'>
+          <pose frame=''> 0 0 0 -0 -0 -0 </pose>
+          <geometry>
+                <mesh>
+                    <uri>file://model/body.STL</uri>
+                </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+          <transparency>0.2</transparency>
+        </visual>
+
+          <collision name='collision'>
+            <geometry>
+              <box>
+                <size>3 2.5 .5</size>
+              </box>
+            </geometry>
+          </collision>
+
+          <visual name='wall_left_visual'>
+            <pose>0.7 0 0.5 0 0 0</pose>
+            <geometry>
+              <box> <size> .3 .4 .5 </size> </box>
+            </geometry>
+          </visual>
+
+
+          <visual name='wall_right_visual'>
+            <pose>-0.7 0 0.5 0 0 0</pose>
+            <geometry>
+              <box> <size> .3 .4 .5 </size> </box>
+            </geometry>
+          </visual>
+          
+      </link>
+   
+      <link name="left_wheel">
+        	<inertial>
+      	  <mass>10.0</mass>
+          <inertia> <ixx>0.02708333333</ixx> 
+	   	   <ixy>0.0</ixy> 
+		   <ixz>0.0</ixz> 
+		   <iyy>0.02708333333</iyy> 
+		   <iyz>0.0</iyz>
+		   <izz>0.05</izz>
+           </inertia>
+        </inertial>
+        <pose>0.8 -0.8 0.325  0 -1.57079632679 -1.57079632679</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+                    <transparency>0.2</transparency>
+
+        </visual>
+      </link>
+
+     <link name="left_wheel_2">
+        	<inertial>
+      	  <mass>10.0</mass>
+          <inertia> <ixx>0.02708333333</ixx> 
+	   	   <ixy>0.0</ixy> 
+		   <ixz>0.0</ixz> 
+		   <iyy>0.02708333333</iyy> 
+		   <iyz>0.0</iyz>
+		   <izz>0.05</izz>
+           </inertia>
+        </inertial>
+        <pose>-0.8 0.8 0.325  0 -1.57079632679 -1.57079632679</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+                    <transparency>0.2</transparency>
+
+        </visual>
+      </link>
+
+      <link name="right_wheel">
+        	<inertial>
+      	  <mass>10.0</mass>
+          <inertia> <ixx>0.02708333333</ixx> 
+	   	   <ixy>0.0</ixy> 
+		   <ixz>0.0</ixz> 
+		   <iyy>0.02708333333</iyy> 
+		   <iyz>0.0</iyz>
+		   <izz>0.05</izz>
+           </inertia>
+        </inertial>
+        <pose>0.8 0.8 0.325 0 -1.57079632679 -1.57079632679</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+                              <transparency>0.2</transparency>
+        </visual>
+      </link>
+
+
+      <link name="right_wheel_2">
+        	<inertial>
+      	  <mass>10.0</mass>
+          <inertia> <ixx>0.02708333333</ixx> 
+	   	   <ixy>0.0</ixy> 
+		   <ixz>0.0</ixz> 
+		   <iyy>0.02708333333</iyy> 
+		   <iyz>0.0</iyz>
+		   <izz>0.05</izz>
+           </inertia>
+        </inertial>
+        <pose>-0.8 -0.8 0.325 0 -1.57079632679 -1.57079632679</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.325</radius>
+              <length>.27</length>
+            </cylinder>
+          </geometry>
+                              <transparency>0.2</transparency>
+        </visual>
+      </link>
+
+      <joint type="revolute" name="left_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_wheel</child>
+        <parent>cart_body</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="right_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>right_wheel</child>
+        <parent>cart_body</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="left_wheel_hinge_2">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_wheel_2</child>
+        <parent>cart_body</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="right_wheel_hinge_2">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>right_wheel_2</child>
+        <parent>cart_body</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+    </model>
+  </world>
+</sdf>
+
+

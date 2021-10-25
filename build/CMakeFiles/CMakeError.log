@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_949ee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_949ee.dir/build.make CMakeFiles/cmTC_949ee.dir/build
+make[1]: Entering directory '/home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_949ee.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_949ee.dir/CheckSymbolExists.c.o   -c /home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_949ee
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_949ee.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_949ee.dir/CheckSymbolExists.c.o  -o cmTC_949ee -rdynamic 
+CMakeFiles/cmTC_949ee.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_949ee.dir/build.make:97: recipe for target 'cmTC_949ee' failed
+make[1]: *** [cmTC_949ee] Error 1
+make[1]: Leaving directory '/home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_949ee/fast' failed
+make: *** [cmTC_949ee/fast] Error 2
+
+File /home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3a1da/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3a1da.dir/build.make CMakeFiles/cmTC_3a1da.dir/build
+make[1]: Entering directory '/home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3a1da.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3a1da.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3a1da
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a1da.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_3a1da.dir/CheckFunctionExists.c.o  -o cmTC_3a1da -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3a1da.dir/build.make:97: recipe for target 'cmTC_3a1da' failed
+make[1]: *** [cmTC_3a1da] Error 1
+make[1]: Leaving directory '/home/ros/ros_inverse_pendulum/src/pendulum_plugin_world/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3a1da/fast' failed
+make: *** [cmTC_3a1da/fast] Error 2
+
+
